@@ -20,7 +20,7 @@ namespace ProductService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.OrderByDescending(p => p.Id).ToListAsync();
         }
 
         // GET: api/Products/5
